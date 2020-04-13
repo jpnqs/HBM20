@@ -52,7 +52,7 @@ const Presenter = {
             backgroundColor: "#ffffff"
         }, 200)
         body.animate({
-            backgroundColor: "#d1403b"
+            backgroundColor: "white"  //"#d1403b"
         }, 400)
         text.html("<span class=\"emoji\">❤️</span>")
         .animate({

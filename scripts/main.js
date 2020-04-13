@@ -1,9 +1,9 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
 var dummy = new Image();
-dummy.src = "https://jpnqs.github.io/HBM20/images/free-hug.gif"  // "/images/free-hug.webp"; //https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp";
+dummy.src = "/images/free-hug.gif"  // "/images/free-hug.webp"; //https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp";
 var dummy1 = new Image();
-dummy1.src = "https://jpnqs.github.io/HBM20/images/virtual-hug.gif" // "/images/virtual-hug.webp";//"https://i.giphy.com/media/wIePCLOwUQ4RW/giphy.webp";
+dummy1.src = "/virtual-hug.gif" // "/images/virtual-hug.webp";//"https://i.giphy.com/media/wIePCLOwUQ4RW/giphy.webp";
 var button = $("#repeat");
 
 window.onload = startAnimation;
@@ -34,20 +34,20 @@ async function startAnimation() {
     await Presenter.background("#ffffff");
     await wait(500);
     await Presenter.newImage({
-        url: "https://jpnqs.github.io/HBM20/images/virtual-hug.gif",
+        url: "/images/virtual-hug.gif",
         duration: 2900
     })
     await Presenter.newImage({
-        url: "https://jpnqs.github.io/HBM20/images/free-hug.gif",
+        url: "/images/free-hug.gif",
         duration: 3500
     })
     await Presenter.text({
-        content: "Feier\nschön!\n<span class=\"emoji\">🎂</span>",
-        color: "#62c238",
-        duration: 2800
+        content: "Viel Glück und Erfolg bei allem was du anpackst!\n<span class=\"emoji\">🙂</span>",
+        color: "#d1403b",
+        duration: 5000
     })
     await Presenter.text({
-        content: "Danke,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🌞</span>",
+        content: "Danke,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🤗</span>",
         color: "#3fd476",
         duration: 3500
     })

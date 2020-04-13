@@ -14,6 +14,10 @@ async function startAnimation() {
         opacity: 0
     }, 400);
     await wait(750);
+    await Presenter.newImage({
+        url: "https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp",
+        duration: 2900
+    })
     await Presenter.text({
         content: "Happy\nBirthday\nMilena!\n<span class=\"emoji\">🥳</span>",
         color: "#4287f5",

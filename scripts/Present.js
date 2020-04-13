@@ -137,8 +137,8 @@ const Presenter = {
             body.animate({
                 backgroundColor: "#ffffff"
             }, 200)
-            i.prop("src", url);
-            i.on("load",async () => {
+            // i.prop("src", url);
+            // i.on("load",async () => {
                 image.animate({
                     opacity: "1"
                 }, 400,async _ => {
@@ -147,7 +147,7 @@ const Presenter = {
                         opacity: "0"
                     }, 400, resolve);
                 })
-            });
+            // });
         });
     }
 

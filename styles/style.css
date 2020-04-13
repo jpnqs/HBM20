@@ -13,7 +13,8 @@ html, body {
     user-select: none !important;        
 }
 
-.text {
+.text { 
+    
     z-index: 999;
     color:white;
     font-family: "Comic Neue", Arial, Helvetica, sans-serif;

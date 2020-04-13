@@ -1,9 +1,9 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
 var dummy = new Image();
-dummy.src = "/images/free-hug.webp"; //https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp";
+dummy.src = "images/free-hug.webp"; //https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp";
 var dummy1 = new Image();
-dummy1.src = "/images/virtual-hug.webp";//"https://i.giphy.com/media/wIePCLOwUQ4RW/giphy.webp";
+dummy1.src = "images/virtual-hug.webp";//"https://i.giphy.com/media/wIePCLOwUQ4RW/giphy.webp";
 var button = $("#repeat");
 
 window.onload = startAnimation;
@@ -34,11 +34,11 @@ async function startAnimation() {
     await Presenter.background("#ffffff");
     await wait(500);
     await Presenter.newImage({
-        url: "/images/virtual-hug.webp",
+        url: "images/virtual-hug.webp",
         duration: 2900
     })
     await Presenter.newImage({
-        url: "/images/free-hug.webp",
+        url: "images/free-hug.webp",
         duration: 3500
     })
     await Presenter.text({

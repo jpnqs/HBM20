@@ -47,12 +47,12 @@ async function startAnimation() {
         duration: 2800
     })
     await Presenter.text({
-        content: "Schön, dass\ndu da bist\n<span class=\"emoji\">😄</span>",
+        content: "Danke,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🌞</span>",
         color: "#3fd476",
         duration: 3500
     })
     await Presenter.text({
-        content: "Bleib so\nwie Du bist!\n<span class=\"emoji\">😊</span>",
+        content: "Bleib so\nwie Du\nbist!\n<span class=\"emoji\">😊</span>",
         color: "#6d3fd4",
         duration: 3500
     })
@@ -67,3 +67,21 @@ function wait(ms) {
         }, ms);
     });
 }
+
+function mediaQuery(query) {
+    if (query.matches) {
+        image.css({
+            height: "100%",
+            width: "auto"
+        })
+    } else {
+        image.css({
+            width: "100%",
+            height: "auto"
+        })
+    }
+}
+
+var query = window.matchMedia("(orientation: landscape)");
+mediaQuery(query);
+query.addListener(mediaQuery);

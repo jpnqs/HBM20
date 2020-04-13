@@ -79,8 +79,9 @@ img {
 
 }
 
-svg {
+.btnIcon {
     float:left;
+    width: 2.5rem;
 }
 
 #repeat > div > span {

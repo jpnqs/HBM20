@@ -3,6 +3,7 @@ function drop() {
     let x = Math.floor(Math.random() * window.innerWidth)
 
     let cl = "drop" + Math.floor(Math.random() * 5);
+    let speed = cl == "drop2" ? 2000 : cl == "drop1" ? 1000 : 500;
 
     // create rain drop
     let drop = $(`
@@ -14,10 +15,10 @@ function drop() {
         left: x + "px"
     })
     drop.appendTo(body);
-    
+
     drop.animate({
         top: window.innerHeight + "px"
-    }, 1000, 'linear',function () {
+    }, speed, 'linear',function () {
         this.remove();
     }.bind(drop))
 

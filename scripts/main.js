@@ -8,6 +8,8 @@ var button = $("#repeat");
 
 window.onload = startAnimation;
 
+document.title = "Happy Birthday Milena! ❤️";
+
 async function startAnimation() {                            
     button.prop("disabled", true)
     .animate({
@@ -47,7 +49,7 @@ async function startAnimation() {
         duration: 5000
     })
     await Presenter.text({
-        content: "Danke,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🤗</span>",
+        content: "Schön,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🤗</span>",
         color: "#3fd476",
         duration: 3500
     })

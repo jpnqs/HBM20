@@ -1,8 +1,8 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
 Presenter.dummyLoad([
-    "/images/free-hug.gif",
-    "/images/virtual-hug.gif"
+    "https://jpnqs.github.io/HBM20/images/free-hug.gif",
+    "https://jpnqs.github.io/HBM20/images/virtual-hug.gif"
 ]);
 
 const button = $("#repeat");
@@ -45,11 +45,11 @@ async function startAnimation() {
     await Presenter.background("#ffffff");
     await wait(500);
     await Presenter.image({
-        url: "/images/virtual-hug.gif",
+        url: "https://jpnqs.github.io/HBM20/images/virtual-hug.gif",
         duration: 2900
     })
     await Presenter.image({
-        url: "/images/free-hug.gif",
+        url: "https://jpnqs.github.io/HBM20/images/free-hug.gif",
         duration: 3500
     })
     await Presenter.text({

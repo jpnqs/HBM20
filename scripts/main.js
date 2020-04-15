@@ -6,11 +6,18 @@ Presenter.dummyLoad([
 ]);
 
 const button = $("#repeat");
+const sun = $("#sun");
+sun.css({
+    display: "none"
+});
+(_ => {
+    document.title = "Happy Birthday Milena! ❤️";
+    window.onload = startAnimation;
+})();
 
-document.title = "Happy Birthday Milena! ❤️";
-window.onload = startAnimation;
+async function startAnimation() {
+    let effects = Presenter.Effects;
 
-async function startAnimation() {                            
     button.prop("disabled", true)
     .animate({
         opacity: 0
@@ -21,18 +28,20 @@ async function startAnimation() {
         color: "#4287f5",
         duration: 2500
     })
-    startRain();
+    effects.Rain.start();
     await Presenter.text({
         content: "Wegen der\nblöden\nSituation\nleider nur virtuell\n<span class=\"emoji\">😢</span>",
-        color: "linear-gradient(to bottom, #202020, #111119)", //'black',
+        color: "linear-gradient(to bottom, #202020, #111119)",
         duration: 5000
     })
-    endRain();
+    effects.Rain.end();
+    effects.Sun.show();
     await Presenter.text({
         content: "Aber\ntrotzdem\n<span class=\"emoji\">😄</span>",
-        color: "#edca3b",
+        color: "#2EB5E5",
         duration: 2000
     })
+    effects.Sun.hide();
     await Presenter.background("#ffffff");
     await wait(500);
     await Presenter.image({
@@ -70,19 +79,17 @@ function wait(ms) {
     });
 }
 
-function mediaQuery(query) {
-    if (query.matches) {
-        image.css({
-            height: "100%",
-            width: "auto"
-        })
-    } else {
-        image.css({
-            width: "100%",
-            height: "auto"
-        })
+const mediaQuery = query => image.css(
+    query.matches 
+    ? {
+        height: "100%",
+        width: "auto"
     }
-}
+    : {
+        width: "100%",
+        height: "auto"
+    }
+);
 
 var query = window.matchMedia("(orientation: landscape)");
 mediaQuery(query);

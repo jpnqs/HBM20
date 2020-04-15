@@ -9,9 +9,17 @@ var i = $("#i");
 
 const Presenter = {
 
+    dummyLoad: (arr) => {
+        Presenter.dummyLoad.images = [];
+        arr.forEach(url => {
+            let dummy = new Image()
+            dummy.src = url;
+            Presenter.dummyLoad.images.push(dummy);
+        });
+    },
+
     image: async ({url, duration}) => {
-        return new Promise(async (resolve) => {
-            await wait(250);
+        return new Promise(async resolve => {
             text.animate({
                 fontSize: "4rem",
                 opacity:"0"
@@ -23,13 +31,12 @@ const Presenter = {
             i.on("load",async () => {
                 image.animate({
                     opacity: "1"
+                }, 400,async _ => {
+                    await wait(duration);
+                    image.animate({
+                        opacity: "0"
+                    }, 400, resolve);
                 })
-                await wait(duration);
-                image.animate({
-                    opacity: "0"
-                })
-                await wait(500);
-                resolve();
             });
         });
     },
@@ -125,31 +132,6 @@ const Presenter = {
 
             })
         });
-    },
-
-    newImage: async ({url, duration}) => {
-        return new Promise(async resolve => {
-            // await wait(250);
-            text.animate({
-                fontSize: "4rem",
-                opacity:"0"
-            })
-            body.animate({
-                backgroundColor: "#ffffff"
-            }, 200)
-            i.prop("src", url);
-            i.on("load",async () => {
-                image.animate({
-                    opacity: "1"
-                }, 400,async _ => {
-                    await wait(duration);
-                    image.animate({
-                        opacity: "0"
-                    }, 400, resolve);
-                })
-            });
-        });
     }
-
 
 }

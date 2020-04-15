@@ -1,14 +1,14 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
-var dummy = new Image();
-dummy.src = "/images/free-hug.gif"  // "/images/free-hug.webp"; //https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp";
-var dummy1 = new Image();
-dummy1.src = "/virtual-hug.gif" // "/images/virtual-hug.webp";//"https://i.giphy.com/media/wIePCLOwUQ4RW/giphy.webp";
-var button = $("#repeat");
+Presenter.dummyLoad([
+    "/images/free-hug.gif",
+    "/images/virtual-hug.gif"
+]);
 
-window.onload = startAnimation;
+const button = $("#repeat");
 
 document.title = "Happy Birthday Milena! ❤️";
+window.onload = startAnimation;
 
 async function startAnimation() {                            
     button.prop("disabled", true)
@@ -35,11 +35,11 @@ async function startAnimation() {
     })
     await Presenter.background("#ffffff");
     await wait(500);
-    await Presenter.newImage({
+    await Presenter.image({
         url: "/images/virtual-hug.gif",
         duration: 2900
     })
-    await Presenter.newImage({
+    await Presenter.image({
         url: "/images/free-hug.gif",
         duration: 3500
     })

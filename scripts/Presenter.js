@@ -14,6 +14,8 @@ const i = $("#i");
  */
 const Presenter = {
 
+    lastPanelImage: false,
+
     /**
      * Dummy laden von bildern, damit diese sich im browser cache
      * befinden und beim zweiten mal laden schneller verfübgar sind
@@ -30,6 +32,7 @@ const Presenter = {
     },
 
     image: async ({url, duration}) => {
+        Presenter.lastPanelImage = true;
         return new Promise(async resolve => {
             text.animate({
                 fontSize: "4rem",
@@ -114,6 +117,7 @@ const Presenter = {
      * @static
      */
     text: async ({content, color, duration}) => {
+        Presenter.lastPanelImage = false;
         return new Promise(resolve => {
             // neue zeile mit <br> für html ersetzen
             content = content.replace(/\n/g, "<br>");
@@ -127,11 +131,7 @@ const Presenter = {
             // setze den neuen text der angezeigt werden soll!
             .html(content)
 
-            // animiere den hintegrund zu weiß (für coolen white-fade effekt :))
-            body.animate({
-                backgroundColor: "#ffffff"
-            }, 200, 
-            async _ => {
+            let end = async _ => {
                 // animiere den hintegrund zur mitgegebenen farbe
                 body.animate({
                     backgroundColor: color
@@ -159,7 +159,17 @@ const Presenter = {
                     }, resolve);
                 });
 
-            })
+            }
+
+            if (!Presenter.lastPanelImage) {
+                // animiere den hintegrund zu weiß (für coolen white-fade effekt :))
+                body.animate({
+                    backgroundColor: "#ffffff"
+                }, 200, end)
+            } else {
+                end();
+            }
+
         });
     },
 

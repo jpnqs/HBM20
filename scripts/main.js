@@ -50,7 +50,7 @@ async function startAnimation() {
     })
     await Presenter.image({
         url: "https://jpnqs.github.io/HBM20/images/free-hug.gif",
-        duration: 3500
+        duration: 2900
     })
     await Presenter.text({
         content: "Viel Glück und Erfolg bei allem was du anpackst!\n<span class=\"emoji\">🙂</span>",

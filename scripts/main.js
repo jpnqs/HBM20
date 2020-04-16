@@ -54,7 +54,7 @@ async function startAnimation() {
         duration: 2900
     })
     await Presenter.text({
-        content: "Viel Glück\nund Erfolg\nbei allem was\nDu anpackst!\n<span class=\"emoji\">🙂</span>",
+        content: "Viel Glück und Erfolg bei allem was Du anpackst!\n<span class=\"emoji\">🙂</span>",
         color: "#d1403b",
         duration: 5000
     })

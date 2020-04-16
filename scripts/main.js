@@ -1,7 +1,7 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
 const images = [
-    "https://jpnqs.github.io/HBM20/images/virtual-hug.gif",
+    "https://jpnqs.github.io/HBM20/images/01.gif",
     "https://jpnqs.github.io/HBM20/images/free-hug.gif"
     // "/images/virtual-hug.gif",
     // "/images/free-hug.gif"

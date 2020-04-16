@@ -1,15 +1,16 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
-Presenter.dummyLoad([
-    "https://jpnqs.github.io/HBM20/images/free-hug.gif",
-    "https://jpnqs.github.io/HBM20/images/virtual-hug.gif"
-]);
+const images = [
+    "https://jpnqs.github.io/HBM20/images/virtual-hug.gif",
+    "https://jpnqs.github.io/HBM20/images/free-hug.gif"
+    // "/images/virtual-hug.gif",
+    // "/images/free-hug.gif"
+];
+
+Presenter.dummyLoad(images);
 
 const button = $("#repeat");
-const sun = $("#sun");
-sun.css({
-    display: "none"
-});
+
 (_ => {
     document.title = "Happy Birthday Milena! ❤️";
     window.onload = startAnimation;
@@ -22,7 +23,7 @@ async function startAnimation() {
     .animate({
         opacity: 0
     }, 400);
-    await wait(750);
+    await Presenter.wait(750);
     await Presenter.text({
         content: "Happy\nBirthday\nMilena!\n<span class=\"emoji\">🥳</span>",
         color: "#4287f5",
@@ -43,17 +44,17 @@ async function startAnimation() {
     })
     effects.Sun.hide();
     await Presenter.background("#ffffff");
-    await wait(500);
+    await Presenter.wait(500);
     await Presenter.image({
-        url: "https://jpnqs.github.io/HBM20/images/virtual-hug.gif",
+        url: images[0],
         duration: 2900
     })
     await Presenter.image({
-        url: "https://jpnqs.github.io/HBM20/images/free-hug.gif",
+        url: images[1],
         duration: 2900
     })
     await Presenter.text({
-        content: "Viel Glück und Erfolg bei allem was du anpackst!\n<span class=\"emoji\">🙂</span>",
+        content: "Viel Glück\nund Erfolg\nbei allem was\nDu anpackst!\n<span class=\"emoji\">🙂</span>",
         color: "#d1403b",
         duration: 5000
     })

@@ -1,58 +1,70 @@
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
-var dummy = new Image();
-dummy.src = "/images/free-hug.webp"; //https://i.giphy.com/media/Bj9k1U69GZ8Iw/giphy.webp";
-var dummy1 = new Image();
-dummy1.src = "/images/virtual-hug.webp";//"https://i.giphy.com/media/wIePCLOwUQ4RW/giphy.webp";
-var button = $("#repeat");
+const images = [
+    "https://jpnqs.github.io/HBM20/images/01.gif",
+    "https://jpnqs.github.io/HBM20/images/free-hug.gif"
+    // "/images/virtual-hug.gif",
+    // "/images/free-hug.gif"
+];
 
-window.onload = startAnimation;
+Presenter.dummyLoad(images);
 
-async function startAnimation() {                            
+const button = $("#repeat");
+
+(_ => {
+    document.title = "Happy Birthday Milena! ❤️";
+    window.onload = startAnimation;
+})();
+
+async function startAnimation() {
+    let effects = Presenter.Effects;
+
     button.prop("disabled", true)
     .animate({
         opacity: 0
     }, 400);
-    await wait(750);
+    await Presenter.wait(750);
     await Presenter.text({
         content: "Happy\nBirthday\nMilena!\n<span class=\"emoji\">🥳</span>",
         color: "#4287f5",
         duration: 2500
     })
-    startRain();
+    effects.Rain.start();
     await Presenter.text({
         content: "Wegen der\nblöden\nSituation\nleider nur virtuell\n<span class=\"emoji\">😢</span>",
-        color: "linear-gradient(to bottom, #202020, #111119)", //'black',
+        color: "linear-gradient(to bottom, #202020, #111119)",
         duration: 5000
     })
-    endRain();
+    effects.Rain.end();
+    effects.Sun.show();
     await Presenter.text({
         content: "Aber\ntrotzdem\n<span class=\"emoji\">😄</span>",
-        color: "#edca3b",
+        color: "#2EB5E5",
         duration: 2000
     })
+    effects.Sun.hide();
     await Presenter.background("#ffffff");
-    await wait(500);
-    await Presenter.newImage({
-        url: "/images/virtual-hug.webp",
+    await Presenter.wait(500);
+    await Presenter.image({
+        url: images[0],
         duration: 2900
     })
-    await Presenter.newImage({
-        url: "/images/free-hug.webp",
-        duration: 3500
+    await Presenter.image({
+        url: images[1],
+        duration: 2900
     })
     await Presenter.text({
-        content: "Feier\nschön!\n<span class=\"emoji\">🎂</span>",
-        color: "#62c238",
-        duration: 2800
+        content: "Viel Glück und Erfolg bei allem was Du anpackst!\n<span class=\"emoji\">🙂</span>",
+        color: "#d1403b",
+        duration: 5000
     })
     await Presenter.text({
-        content: "Schön, dass\ndu da bist\n<span class=\"emoji\">😄</span>",
+        content: "Schön,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🤗</span>",
         color: "#3fd476",
         duration: 3500
     })
     await Presenter.text({
-        content: "Bleib so\nwie Du bist!\n<span class=\"emoji\">😊</span>",
+        content: "Bleib so\nwie Du\nbist!\n<span class=\"emoji\">😊</span>",
         color: "#6d3fd4",
         duration: 3500
     })
@@ -67,3 +79,19 @@ function wait(ms) {
         }, ms);
     });
 }
+
+const mediaQuery = query => image.css(
+    query.matches 
+    ? {
+        height: "100%",
+        width: "auto"
+    }
+    : {
+        width: "100%",
+        height: "auto"
+    }
+);
+
+var query = window.matchMedia("(orientation: landscape)");
+mediaQuery(query);
+query.addListener(mediaQuery);

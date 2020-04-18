@@ -1,10 +1,14 @@
+/**
+ * @template https://github.com/jpnqs/HBM20
+ */
+
 // dummy loading der bilder um delay innerhalb der nachricht
 // zu minimieren
 const images = [
-    "https://jpnqs.github.io/HBM20/images/01.gif",
-    "https://jpnqs.github.io/HBM20/images/free-hug.gif"
-    // "/images/virtual-hug.gif",
-    // "/images/free-hug.gif"
+    // "https://jpnqs.github.io/IsfdieTb/images/01.gif",
+    // "https://jpnqs.github.io/IsfdieTb/images/free-hug.gif"
+    "/images/01.gif",
+    "/images/free-hug.gif"
 ];
 
 Presenter.dummyLoad(images);
@@ -54,12 +58,12 @@ async function startAnimation() {
         duration: 2900
     })
     await Presenter.text({
-        content: "Viel Glück und Erfolg bei allem was Du anpackst!\n<span class=\"emoji\">🙂</span>",
+        content: "Viel Glück und Erfolg bei allem was Du anpackst!\n<span class=\"emoji\">😀</span>",
         color: "#d1403b",
         duration: 5000
     })
     await Presenter.text({
-        content: "Schön,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🤗</span>",
+        content: "Danke,\ndass\nes Dich\ngibt!\n<span class=\"emoji\">🤗</span>",
         color: "#3fd476",
         duration: 3500
     })
